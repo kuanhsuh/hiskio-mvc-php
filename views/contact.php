@@ -4,15 +4,15 @@
 <form action="" method="post">
   <div class="mb-3">
     <label class="form-label">Email address</label>
-    <input type="email" class="form-control">
+    <input name="email" type="email" class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Password</label>
-    <input type="password" class="form-control">
+    <input name="password" type="password" class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Body</label>
-    <textarea class="form-control"></textarea>
+    <textarea name="body" class="form-control"></textarea>
   </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input">

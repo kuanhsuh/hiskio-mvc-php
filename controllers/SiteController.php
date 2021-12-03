@@ -1,25 +1,28 @@
 <?php
 
 namespace app\controllers;
-use app\core\Application;
+use app\core\Controller;
+use app\core\Request;
 
-class SiteController
+class SiteController extends Controller
 {
-  public static function home()
+  public function home()
   {
     $params = [
       'name' => 'TheCodeholic'
     ];
-
-    return Application::$app->router->renderView('home', $params);
+    return $this->render('home', $params);
   }
 
-  public static function contact()
+  public function contact()
   {
-    return Application::$app->router->renderView('contact');
+    return $this->render('contact');
   }
-  public static function handleContact()
+
+  public static function handleContact(Request $request)
   {
+    $body = $request->getBody();
+    print_r($body);
     return 'Handling submitted data';
   }
 }
