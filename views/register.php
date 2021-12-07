@@ -1,10 +1,12 @@
-
 <h1>Register</h1>
 
 <form action="" method="post">
   <div class="mb-3">
     <label class="form-label">Firstname</label>
-    <input name="firstname" type="text" class="form-control">
+    <input name="firstname" type="text" class="form-control <?php echo $model->hasError('firstname') ? 'is-invalid' : ''; ?>">
+    <div class="invalid-feedback">
+      <?php echo $model->getFirstError('firstname'); ?>
+    </div>
   </div>
   <div class="mb-3">
     <label class="form-label">Lastname</label>
