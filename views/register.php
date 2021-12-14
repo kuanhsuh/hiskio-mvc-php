@@ -1,6 +1,6 @@
 
 <h1>Register</h1>
-<?php echo '<pre>',print_r($model),'</pre>'; ?>
+
 <form action="" method="post">
   <div class="mb-3">
     <label class="form-label">Firstname</label>

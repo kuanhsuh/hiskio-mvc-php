@@ -1,18 +1,24 @@
 <?php
 
 namespace app\models;
-use app\core\Model;
+use app\core\DbModel;
 
-class RegisterModel extends Model
+class User extends DbModel
 {
   public string $firstname = '';
   public string $lastname = '';
   public string $email = '';
   public string $password = '';
 
+  public function tableName()
+  {
+    return 'users';
+  }
+
   public function register()
   {
-    echo 'create new users';
+    $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+    return $this->save();
   }
 
   public function rules()
@@ -23,5 +29,10 @@ class RegisterModel extends Model
       'email' => [self::RULE_REQUIRED, self::RULE_EMAIL],
       'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
     ];
+  }
+
+  public function attributes()
+  {
+    return ['firstname', 'lastname', 'email', 'password'];
   }
 }
